@@ -8,9 +8,9 @@ import (
 	"net/http"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/hackeraks/bookings/pkg/config"
-	"github.com/hackeraks/bookings/pkg/handlers"
-	"github.com/hackeraks/bookings/pkg/render"
+	"github.com/hackeraks/bookings/internal/config"
+	handler "github.com/hackeraks/bookings/internal/handlers"
+	"github.com/hackeraks/bookings/internal/render"
 )
 
 const portNumber = ":8080"
