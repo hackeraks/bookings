@@ -6,8 +6,8 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	"github.com/hackeraks/bookings/pkg/config"
-	handler "github.com/hackeraks/bookings/pkg/handlers"
+	"github.com/hackeraks/bookings/internal/config"
+	handler "github.com/hackeraks/bookings/internal/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {
@@ -23,6 +23,8 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Post("/search-availability", handler.Repo.PostAvailability)
 	mux.Post("/search-availability-json", handler.Repo.PostAvailabilityJson)
 	mux.Get("/contact", handler.Repo.Contact)
+	mux.Get("/make-reservation", handler.Repo.Reservation)
+	mux.Post("/make-reservation", handler.Repo.PostReservation)
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 	return mux
